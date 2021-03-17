@@ -81,7 +81,8 @@ class ChatManager:
             chat_name = context['sender']['nickname']
         efb_chat = PrivateChat(channel=self.channel,
                                uid='private' + '_' + str(uid),
-                               name=str(chat_name),
+                               #name=str(chat_name),
+                               name=str(uid),
                                alias=None if 'alias' not in context else str(context['alias']))
         return efb_chat
 
@@ -97,7 +98,8 @@ class ChatManager:
                 chat_name = i['nickname']
         else:
             chat_name = context['nickname']
-        return chat.add_member(name=str(chat_name),
+        return chat.add_member(#name=str(chat_name),
+                                name=str(member_uid),
                                alias=None if 'alias' not in context else str(context['alias']),
                                uid=str(member_uid))
 
